@@ -7,8 +7,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'vajax.js',
-    library: 'vajax',
+    filename: 'vxajax.js',
+    library: 'vxajax',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },

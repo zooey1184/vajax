@@ -1,10 +1,10 @@
 {
-  "name": "vajax",
+  "name": "vxajax",
   "description": "封装的ajax",
   "version": "1.0.0",
   "author": "张应颖 <1184762165@qq.com>",
   "license": "MIT",
-  "main": "dist/vajax.js",
+  "main": "dist/vxajax.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/zooey1184/vajax"

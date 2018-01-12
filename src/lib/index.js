@@ -57,6 +57,12 @@ ajaxPlugin.install = function(Vue, options = {}) {
         if(options.vload=='true') {
           if (!!window.vload) {
             window.vload.$load.show()
+          }else {
+            if(window.insertLoad) {
+              window.insertLoad()
+            }else {
+              console.log('发起统一的loading');
+            }
           }
         }
       } else if (options.type === 'POST') {
@@ -70,6 +76,12 @@ ajaxPlugin.install = function(Vue, options = {}) {
         if(options.vload=='true') {
           if (!!window.vload) {
             window.vload.$load.show()
+          }else {
+            if(window.insertLoad) {
+              window.insertLoad()
+            }else {
+              console.log('发起统一的loading');
+            }
           }
         }
       }
@@ -81,6 +93,12 @@ ajaxPlugin.install = function(Vue, options = {}) {
             if(options.vload=='true') {
               if (!!window.vload) {
                 window.vload.$load.hide()
+              }else {
+                if(window.deleteLoad) {
+                  window.deleteLoad()
+                }else {
+                  console.log('移除统一的loading');
+                }
               }
             }
 
@@ -92,12 +110,16 @@ ajaxPlugin.install = function(Vue, options = {}) {
               try {
                 rjson = JSON.parse(request.responseText)
                 // 统一的信息提示
-                if (!!window.vm) {
-                  if (!rjson.success) {
-                    if(options.toast=='true') {
+                if (!rjson.success) {
+                  if(options.toast=='true') {
+                    if (!!window.vm) {
                       window.vm.$toast(rjson.msg)
                     }else {
-                      console.log('禁用toast');
+                      if(window.insertToast) {
+                        window.insertToast()
+                      }else {
+                        console.log('统一的toast');
+                      }
                     }
                   }
                 }
