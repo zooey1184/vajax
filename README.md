@@ -28,3 +28,22 @@ dataType | String  | （可选）'json'(默认)
 data | Object  | （可选）传入参数 （默认{}）
 toast | String  | 'true'
 vload | String  | 'false'
+
+###### <font color=#e47128>【新增回调方式】</font>
+
+```js
+// 主要是因为promise的方式在低板安卓的（4.4.x以下）兼容性不佳，调用回调会忽略promise的使用
+// main.js
+import vxajax from 'vxajax'
+Vue.use(vxajax)
+
+// js 简单使用
+this.$ajax({
+  url: 'abc/api',
+  success: function() {},
+  error: function() {}
+})
+// 返回callback()
+// success()
+// error()
+```
